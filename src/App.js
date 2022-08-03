@@ -27,6 +27,8 @@ class App extends React.Component {
                 <Form 
                     inputData = {
                         {
+                            id: 1,
+                            name: "Informations",
                             inputs: [
                                 {type: "text", placeholder: "First name", value: "firstName"},
                                 {type: "text", placeholder: "Last name", value: "lastName"},
@@ -35,21 +37,19 @@ class App extends React.Component {
                             ],
                             buttons: [
                                 {type: "submit", title: "Submit"}
-                            ],
-                            id: 1
+                            ]
                         }
                     }
 
                     submitData = {this.submitData}
                 />
-                {this.state.data.length > 0 ?
-                    <Display data={this.state.data} id={1} />
-                :
-                    null
-                } 
+
+
                 <Form 
                     inputData = {
                         {
+                            id: 2,
+                            name: "Experiences",
                             inputs: [
                                 {type: "text", placeholder: "Company Name", value: "companyName"},
                                 {type: "text", placeholder: "Role", value: "role"},
@@ -57,13 +57,22 @@ class App extends React.Component {
                             ],
                             buttons: [
                                 {type: "submit", title: "Add"}
-                            ],
-                            id: 2
+                            ]
                         }
                     }
 
                     submitData = {this.submitData}
                 />
+
+                {this.state.data.length > 0 ?
+                    <div>
+                        <Display data={this.state.data} id={1} />
+                        <Display data={this.state.data} id={2} />
+                    </div>
+                :
+                    <div></div>
+                } 
+
             </div>
            
         )

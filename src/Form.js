@@ -9,7 +9,6 @@ class Form extends React.Component {
         this.state = {
             editStatus: false,
             inputs: null,
-            // submits: []
         }
 
         this.submitHandler = this.submitHandler.bind(this);
@@ -17,8 +16,9 @@ class Form extends React.Component {
 
     componentDidMount() {
         const inputsObject = {}
-        this.props.inputData.inputs.map(e => inputsObject[e.value] = "");
         inputsObject['id'] = this.props.inputData.id
+        inputsObject['name'] = this.props.inputData.name
+        this.props.inputData.inputs.map(e => inputsObject[e.value] = "");
 
         this.setState({
             inputs: inputsObject
@@ -39,8 +39,9 @@ class Form extends React.Component {
         this.props.submitData(this.state.inputs);
 
         const inputsObject = {};
-        this.props.inputData.inputs.map(e => inputsObject[e.value] = "");
         inputsObject['id'] = this.props.inputData.id;
+        inputsObject['name'] = this.props.inputData.name;
+        this.props.inputData.inputs.map(e => inputsObject[e.value] = "");
 
         this.setState({
             inputs: inputsObject
